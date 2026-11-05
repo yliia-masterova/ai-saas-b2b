@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notch — TOP notch your money velocity | AR Automation Software</title>
+<meta name="description" content="Notch is a financial automation platform that helps you collect payments faster and spend less time on admin.">
+
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#880058">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Notch">
+<meta property="og:title" content="Notch — TOP notch your money velocity">
+<meta property="og:description" content="Notch is a financial automation platform that helps you collect payments faster and spend less time on admin.">
+<meta property="og:image" content="https://res.cloudinary.com/y5bf1fxv/image/upload/v1793736492/Frame_4.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Notch — AR automation and payment collection platform">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Notch — TOP notch your money velocity">
+<meta name="twitter:description" content="Notch is a financial automation platform that helps you collect payments faster and spend less time on admin.">
+<meta name="twitter:image" content="https://res.cloudinary.com/y5bf1fxv/image/upload/v1793736492/Frame_4.png">
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" href="https://res.cloudinary.com/y5bf1fxv/image/upload/v1793735926/favicon.png">
+<link rel="apple-touch-icon" href="https://res.cloudinary.com/y5bf1fxv/image/upload/v1793735926/favicon.png">
+
+<!-- Analytics -->
+<!-- GA4: Insert tracking tag here -->
+<!-- Meta Pixel: Insert tracking tag here -->
+
+<!-- Performance: early connections to asset hosts -->
+<link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Boldonse&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   1. TOKENS
+   ========================================================================== */
+:root {
+  /* Brand */
+  --plum: #880058;
+  --plum-600: #6d0046;
+  --plum-700: #52003a;
+  --plum-300: #c25a98;
+  --plum-100: #f6e3ee;
+  --ink: #1b0a14;
+  --ink-soft: #5b4553;
+  --bg: #fbf6f9;
+
+  /* Type */
+  --font-title: "Boldonse", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Boldonse", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-brand: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Liquid glass tokens */
+  --glass-bg: linear-gradient(135deg, rgba(255,255,255,.55), rgba(255,255,255,.18));
+  --glass-bg-strong: linear-gradient(135deg, rgba(255,255,255,.72), rgba(255,255,255,.28));
+  --glass-blur: 22px;
+  --glass-saturate: 170%;
+  --glass-border: rgba(255,255,255,.65);
+  --glass-edge-dark: rgba(136,0,88,.14);
+  --glass-shadow:
+    0 24px 60px -20px rgba(136,0,88,.35),
+    0 6px 18px -6px rgba(82,0,58,.18);
+  --glass-inner:
+    inset 0 1px 0 rgba(255,255,255,.95),
+    inset 0 -1px 0 rgba(136,0,88,.10),
+    inset 0 0 24px rgba(255,255,255,.35);
+  --glass-reflection: linear-gradient(115deg, rgba(255,255,255,.75) 0%, rgba(255,255,255,0) 38%, rgba(255,255,255,0) 62%, rgba(255,255,255,.35) 100%);
+
+  /* Layout */
+  --radius-lg: 28px;
+  --radius-md: 20px;
+  --container: 1200px;
+  --gutter: clamp(1rem, 4vw, 2rem);
+  --section-y: clamp(3.5rem, 8vw, 7rem);
+
+  /* Motion */
+  --ease: cubic-bezier(.22,.8,.24,1);
+  --zoom: 1.08;
+}
+
+/* ==========================================================================
+   2. BASE
+   ========================================================================== */
+*,*::before,*::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-brand);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.55;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+h1,h2,h3,p { margin: 0; }
+h1,h2 { font-family: var(--font-title); font-weight: 400; }
+.container { width: min(100% - 2*var(--gutter), var(--container)); margin-inline: auto; }
+.sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+:focus-visible { outline: 3px solid var(--plum); outline-offset: 3px; border-radius: 10px; }
+
+/* Ambient plum backdrop so glass has something to refract */
+.ambient { position: fixed; inset: 0; z-index: -1; overflow: hidden; background: var(--bg); }
+.ambient span { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .55; animation: drift 22s ease-in-out infinite alternate; }
+.ambient span:nth-child(1){ width:46vmax; height:46vmax; background:#d6609f; top:-18vmax; left:-12vmax; }
+.ambient span:nth-child(2){ width:38vmax; height:38vmax; background:var(--plum); top:20vh; right:-14vmax; opacity:.35; animation-duration:28s; }
+.ambient span:nth-child(3){ width:34vmax; height:34vmax; background:#f3b6d7; bottom:-16vmax; left:20vw; animation-duration:32s; }
+
+/* ==========================================================================
+   3. LIQUID GLASS COMPONENT
+   ========================================================================== */
+.glass {
+  position: relative;
+  isolation: isolate;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+          backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  border: 1px solid var(--glass-edge-dark);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow), var(--glass-inner);
+  overflow: hidden;
+}
+/* polished reflection sheen */
+.glass::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: var(--glass-reflection);
+  opacity: .8;
+  transition: transform .9s var(--ease), opacity .4s;
+}
+/* subtle inner border highlight */
+.glass::after {
+  content: ""; position: absolute; inset: 1px; z-index: -1; pointer-events: none;
+  border-radius: calc(var(--radius-lg) - 1px);
+  border: 1px solid var(--glass-border);
+  mask: linear-gradient(#000, transparent 70%);
+  -webkit-mask: linear-gradient(#000, transparent 70%);
+}
+.glass--interactive { transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
+.glass--interactive:hover { transform: translateY(-6px); box-shadow: 0 34px 70px -22px rgba(136,0,88,.45), var(--glass-inner); }
+.glass--interactive:hover::before { transform: translateX(14%); opacity: 1; }
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass { background: var(--glass-bg-strong); }
+}
+
+/* ==========================================================================
+   4. HEADER + BUTTONS
+   ========================================================================== */
+.site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding-block: .75rem; }
+.nav {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: .6rem .8rem .6rem 1.2rem; border-radius: 999px;
+}
+.nav.glass { --radius-lg: 999px; }
+.logo { display: inline-flex; align-items: center; gap: .5rem; font-weight: 800; font-size: 1.35rem; color: var(--plum); text-decoration: none; letter-spacing: -.02em; }
+.logo img { height: 26px; width: auto; }
+.nav__links { display: none; gap: 1.75rem; list-style: none; margin: 0; padding: 0; }
+.nav__links a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: .95rem; transition: color .2s; }
+.nav__links a:hover { color: var(--plum); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  padding: .8rem 1.5rem; border-radius: 999px; border: 0; cursor: pointer;
+  font: inherit; font-weight: 600; text-decoration: none; transition: transform .3s var(--ease), box-shadow .3s var(--ease), background .3s;
+}
+.btn--primary { background: linear-gradient(180deg, #a3036b, var(--plum) 60%, var(--plum-600)); color:#fff; box-shadow: 0 10px 24px -8px rgba(136,0,88,.7), inset 0 1px 0 rgba(255,255,255,.35); }
+.btn--primary:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 16px 30px -8px rgba(136,0,88,.8), inset 0 1px 0 rgba(255,255,255,.45); }
+.btn--ghost { background: rgba(255,255,255,.55); color: var(--plum); box-shadow: inset 0 0 0 1px rgba(136,0,88,.25), inset 0 1px 0 #fff; }
+.btn--ghost:hover { background: rgba(255,255,255,.85); transform: translateY(-2px); }
+
+/* ==========================================================================
+   5. HERO
+   ========================================================================== */
+.hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  display: flex; align-items: center;
+  min-height: max(640px, 100vh); min-height: max(640px, 100svh);
+  margin: 0;
+  padding-block: clamp(6rem, 11vw, 8rem) clamp(1.75rem, 3.5vw, 3rem);
+  background: var(--bg);
+  text-align: left;
+}
+/* hero stays pinned behind the page; the features section slides over it */
+.hero-stack { position: relative; margin-bottom: var(--section-y); }
+.hero-stack > .hero { position: sticky; top: var(--hero-stick, 0px); z-index: 0; }
+.hero-stack > .features { position: relative; z-index: 1; }
+/* zoom-out of the hero content on scroll (video is not part of .container, so it stays put) */
+.hero > .container { transform: scale(var(--hero-zoom, 1)); transform-origin: 50% 50%; will-change: transform; }
+.hero > .container { position: relative; display: flex; flex-direction: column; gap: clamp(1.75rem, 4vh, 3rem); }
+/* compact metrics living inside the hero, left half only */
+.hero .metrics { width: 100%; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.hero .metric { padding: 1rem .75rem; --radius-lg: 20px; }
+.hero .metric__value { font-size: clamp(1.9rem, 3.2vw, 2.9rem); }
+.hero .metric__label { margin-top: .45rem; font-size: .85rem; line-height: 1.3; }
+@media (max-width: 480px)  { .hero .metrics { grid-template-columns: 1fr; } }
+.hero__video { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: right center; }
+/* soft fade from the page colour so the text on the left half stays crisp */
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(90deg, var(--bg) 0%, rgba(251,246,249,.94) 36%, rgba(251,246,249,.55) 52%, rgba(251,246,249,0) 74%);
+}
+.hero__content { width: 50%; padding-right: clamp(1rem, 3vw, 3rem); }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: .5rem; padding: .4rem 1rem; border-radius: 999px;
+  font-size: .85rem; font-weight: 600; color: var(--plum); --radius-lg: 999px; margin-bottom: 1.5rem;
+}
+.eyebrow i { width: 8px; height: 8px; border-radius: 50%; background: var(--plum); animation: pulse 2s infinite; }
+.hero h1 {
+  font-size: clamp(2.08rem, 4.8vw, 4.32rem); line-height: 1.25; letter-spacing: -.02em; font-weight: 400;
+  max-width: none; margin: 0;
+}
+.hero h1 .accent {
+  background: linear-gradient(100deg, var(--plum) 10%, #d6609f 55%, var(--plum) 95%);
+  background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+.hero p { margin: 1.5rem 0 0; max-width: 46ch; font-size: clamp(1.05rem, 1.8vw, 1.3rem); color: var(--ink-soft); }
+.hero__cta { display: flex; flex-wrap: wrap; gap: .9rem; justify-content: flex-start; margin-top: 2.25rem; }
+
+@media (max-width: 767px) {
+  .hero { min-height: 0; }
+  .hero__content { width: 100%; padding-right: 0; }
+  .hero::before { background: linear-gradient(180deg, rgba(251,246,249,.94), rgba(251,246,249,.82)); }
+}
+
+/* ==========================================================================
+   6. TRUST / METRICS
+   ========================================================================== */
+.trust { padding-bottom: var(--section-y); }
+.metrics { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+.metric { padding: clamp(1.75rem, 4vw, 2.75rem); text-align: center; }
+.metric__value {
+  font-family: var(--font-display); font-weight: 400;
+  display: block; font-size: clamp(3.2rem, 8vw, 5rem); line-height: 1; letter-spacing: -.04em;
+  color: var(--plum); font-variant-numeric: tabular-nums;
+}
+.metric__value.is-done { animation: settle .7s var(--ease); }
+.metric__label { display: block; margin-top: .85rem; font-size: 1.05rem; color: var(--ink-soft); font-weight: 500; }
+
+/* ==========================================================================
+   7. FEATURE TABS
+   ========================================================================== */
+.features {
+  /* dark glass tokens scoped to this section */
+  --glass-bg: linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.04));
+  --glass-border: rgba(255,255,255,.28);
+  --glass-edge-dark: rgba(255,255,255,.14);
+  --glass-shadow: 0 30px 70px -30px rgba(0,0,0,.7), 0 6px 18px -6px rgba(0,0,0,.4);
+  --glass-inner: inset 0 1px 0 rgba(255,255,255,.35), inset 0 -1px 0 rgba(255,255,255,.05), inset 0 0 30px rgba(194,90,152,.12);
+  --glass-reflection: linear-gradient(115deg, rgba(255,255,255,.2) 0%, rgba(255,255,255,0) 38%, rgba(255,255,255,0) 62%, rgba(255,255,255,.1) 100%);
+  position: relative; isolation: isolate; overflow: hidden;
+  margin: 0;
+  padding-block: 0 var(--section-y);
+  border-radius: 0;
+  color: #fff;
+  background:
+    radial-gradient(70% 55% at 85% 0%, rgba(214,96,159,.45), transparent 65%),
+    radial-gradient(60% 50% at 0% 100%, rgba(72,0,42,.7), transparent 65%),
+    linear-gradient(160deg, #1b0013 0%, #34001f 45%, #48002A 100%);
+}
+/* full-width photo at the top; its bottom edge melts into the dark gradient */
+.features__media {
+  position: relative; z-index: 0; overflow: hidden;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 52%, rgba(0,0,0,.88) 64%, rgba(0,0,0,.6) 77%, rgba(0,0,0,.28) 88%, rgba(0,0,0,.08) 95%, transparent 100%);
+          mask-image: linear-gradient(180deg, #000 0%, #000 52%, rgba(0,0,0,.88) 64%, rgba(0,0,0,.6) 77%, rgba(0,0,0,.28) 88%, rgba(0,0,0,.08) 95%, transparent 100%);
+}
+/* parallax layers: the background is in flow (sets the height), the others sit on top of it */
+.features__media .px {
+  display: block; width: 100%; height: auto; aspect-ratio: auto 16 / 9;
+  transform: translate3d(0, var(--py, 0px), 0) scale(var(--ps, 1)); transform-origin: 50% 50%; will-change: transform;
+}
+.features__media .px--screens, .features__media .px--man { position: absolute; inset: 0; height: 100%; object-fit: cover; }
+/* all content starts 2/3 of the way down the photo (--hero-h is the photo height, kept in sync by JS) */
+.features__body { position: relative; z-index: 1; margin-top: calc(var(--hero-h, 56.25vw) * -0.3334); }
+.features__body .section-head { margin-bottom: clamp(1.25rem, 2.5vw, 2rem); }
+/* very soft, blurred shadow under the section head */
+.features .section-head { position: relative; }
+.features .section-head::before {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  inset: 0 -6% -30px; border-radius: 50%;
+  background: rgba(14, 0, 9, .6); filter: blur(60px);
+}
+/* tab list + tab panel: near-black glass (panel also gets a very blurred shadow beneath) */
+.features .tablist,
+.features .panel__inner {
+  --glass-bg: linear-gradient(135deg, rgba(8,0,5,.86), rgba(8,0,5,.74));
+  --glass-reflection: linear-gradient(115deg, rgba(255,255,255,.05) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 65%, rgba(255,255,255,.025) 100%);
+  --glass-inner: inset 0 1px 0 rgba(255,255,255,.12), inset 0 -1px 0 rgba(0,0,0,.4), inset 0 0 30px rgba(0,0,0,.45);
+  --glass-edge-dark: rgba(255,255,255,.10);
+}
+.features .panel__inner { --glass-shadow: 0 60px 140px -10px rgba(10,0,6,.75), 0 8px 24px -8px rgba(0,0,0,.4); }
+.features .section-head h2 { color: #fff; }
+.features .section-head p { color: rgba(255,255,255,.75); }
+.features .tab { color: rgba(255,255,255,.72); }
+.features .tab:hover { color: #fff; }
+.features .features .btn--primary { background: #fff; color: var(--plum); box-shadow: 0 10px 24px -8px rgba(0,0,0,.55), inset 0 1px 0 #fff; }
+.section-head { text-align: center; margin-bottom: clamp(1.75rem, 4vw, 3rem); }
+.section-head h2 { font-size: clamp(1.52rem, 4vw, 2.56rem); letter-spacing: -.015em; line-height: 1.3; font-weight: 400; }
+.section-head p { margin: 1rem auto 0; max-width: 62ch; color: var(--ink-soft); font-size: clamp(1rem, 2vw, 1.15rem); }
+
+.tablist {
+  display: flex; gap: .35rem; padding: .4rem; width: max-content; max-width: 100%;
+  margin: 0 auto clamp(1.5rem, 3vw, 2.5rem); overflow-x: auto; scrollbar-width: none; --radius-lg: 999px; border-radius: 999px;
+}
+.tablist::-webkit-scrollbar { display: none; }
+.tab {
+  flex: 0 0 auto; padding: .75rem 1.3rem; border: 0; border-radius: 999px; cursor: pointer; white-space: nowrap;
+  font: inherit; font-weight: 600; font-size: .95rem; color: var(--ink-soft); background: transparent;
+  transition: background .35s var(--ease), color .25s, box-shadow .35s var(--ease), transform .35s var(--ease);
+}
+.tab:hover { color: var(--plum); }
+.tab[aria-selected="true"] {
+  color: #fff; background: linear-gradient(180deg, #a3036b, var(--plum) 60%, var(--plum-600));
+  box-shadow: 0 8px 20px -8px rgba(136,0,88,.7), inset 0 1px 0 rgba(255,255,255,.35);
+}
+
+.panel { display: none; }
+.panel.is-active { display: block; animation: panelIn .6s var(--ease); }
+.panel__inner { display: grid; gap: clamp(1.25rem, 3vw, 2rem); padding: clamp(1rem, 3vw, 2rem); }
+
+/* Large, uncompressed product image, magnifying zoom on hover */
+.shot {
+  position: relative; overflow: hidden; border-radius: var(--radius-md); background: transparent; box-shadow: none;
+  display: grid; grid-template-columns: 1fr; align-items: stretch;
+  width: 100%; max-width: 1100px; margin-inline: auto !important;
+}
+/* bullet column inside the frame, left side */
+.shot__side {
+  padding: clamp(1.25rem, 3vw, 2.5rem); display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 2rem;
+}
+.shot__title .accent { color: #f0a7d1; }
+.shot__title {
+  margin: 0; font-family: var(--font-brand); font-weight: 700; color: #fff; text-align: left;
+  font-size: clamp(1.45rem, 2.4vw, 1.85rem); line-height: 1.15; letter-spacing: -.02em;
+}
+.shot__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1.4rem; }
+.shot__list li {
+  position: relative; padding-left: 1.6rem; color: #fff; font-weight: 400; font-size: clamp(1.05rem, 1.5vw, 1.25rem); line-height: 1.3;
+}
+/* bullet: small plum dot + thin ring (same colour), both centred on the same point */
+.shot__list li::before {
+  content: ""; position: absolute; left: .18rem; top: calc(.42em + .18rem); width: .36rem; height: .36rem; border-radius: 50%;
+  background: var(--plum);
+}
+.shot__list li::after {
+  content: ""; position: absolute; left: -.14rem; top: calc(.42em - .14rem); width: 1rem; height: 1rem; border-radius: 50%;
+  border: 1px solid var(--plum);
+}
+/* image cell: large, uncompressed, magnifying zoom on hover */
+.shot__media { position: relative; overflow: hidden; border-radius: var(--radius-md); aspect-ratio: 3 / 2; cursor: zoom-in; }
+.shot__media img {
+  width: 100%; height: 100%; object-fit: contain; image-rendering: auto;
+  transform: scale(1); transform-origin: center; transition: transform .7s var(--ease); will-change: transform;
+}
+.shot__media:hover img, .shot__media:focus-within img { transform: scale(var(--zoom)); }
+@media (min-width: 768px) { .shot { grid-template-columns: minmax(210px, 36.4%) 1fr; } }
+
+
+
+/* ==========================================================================
+   7b. AR SOLUTION GRID (3x2) — alternating dark / light liquid-glass cards
+   ========================================================================== */
+.solutions { padding-bottom: var(--section-y); }
+.sol-grid { display: grid; grid-template-columns: 1fr; gap: clamp(1rem, 2vw, 1.5rem); }
+.sol-card {
+  --radius-lg: 26px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 1rem;
+  padding: clamp(1.5rem, 2.6vw, 2.25rem); min-height: 100%;
+}
+.sol-card h3 { font-size: clamp(1.45rem, 2.4vw, 1.85rem); line-height: 1.15; letter-spacing: -.02em; font-weight: 700; }
+.sol-card h3 .accent { color: var(--plum); }
+/* image under the title; paragraph is revealed over it on hover */
+.sol-card__media { position: relative; width: 100%; aspect-ratio: 3 / 2; }
+.sol-card__media img {
+  width: 100%; height: 100%; object-fit: contain; object-position: left center; display: block;
+  transition: filter .5s var(--ease), opacity .5s var(--ease);
+}
+.sol-card__media p {
+  position: absolute; inset: 0; display: flex; align-items: flex-start; margin: 0; padding: 0;
+  color: var(--ink-soft); font-size: 1.05rem; line-height: 1.55; font-weight: 500;
+  opacity: 0; transform: translateY(8px); pointer-events: none;
+  transition: opacity .5s var(--ease), transform .5s var(--ease);
+}
+.sol-card:hover .sol-card__media img,
+.sol-card:focus-within .sol-card__media img { filter: blur(6px); opacity: .5; }
+.sol-card:hover .sol-card__media p,
+.sol-card:focus-within .sol-card__media p { opacity: 1; transform: none; }
+.sol-card:nth-child(odd) .sol-card__media p { color: rgba(255,255,255,.92); }
+/* text-only cards: paragraph is always visible, in the space where the image would be (keeps the grid rows even) */
+.sol-card--text .sol-card__media p { position: static; opacity: 1; transform: none; pointer-events: auto; }
+@media (min-width: 1024px) { .sol-card h3 { min-height: 2.3em; } }
+/* touch screens have no hover: show the paragraph under the image instead */
+@media (hover: none) {
+  .sol-card__media { aspect-ratio: auto; display: flex; flex-direction: column; gap: 1rem; }
+  .sol-card__media img { aspect-ratio: 3 / 2; height: auto; }
+  .sol-card__media p { position: static; opacity: 1; transform: none; }
+  .sol-card:hover .sol-card__media img { filter: none; opacity: 1; }
+}
+.sol-card__link {
+  margin-top: auto;
+  display: inline-flex; align-items: center; gap: .5rem; padding: .65rem 1.2rem; border-radius: 999px;
+  font-weight: 600; font-size: .95rem; text-decoration: none; color: #fff;
+  background: linear-gradient(180deg, #a3036b, var(--plum) 60%, var(--plum-600));
+  box-shadow: 0 8px 20px -8px rgba(136,0,88,.7), inset 0 1px 0 rgba(255,255,255,.35);
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease), gap .3s var(--ease);
+}
+.sol-card__link:hover { transform: translateY(-2px); gap: .8rem; box-shadow: 0 14px 26px -8px rgba(136,0,88,.8), inset 0 1px 0 rgba(255,255,255,.45); }
+
+/* dark cards (odd) — plum night glass */
+.sol-card:nth-child(odd) {
+  background:
+    radial-gradient(120% 90% at 85% 0%, rgba(214,96,159,.38), transparent 60%),
+    linear-gradient(145deg, rgba(82,0,58,.94), rgba(30,0,22,.96));
+  border-color: rgba(255,255,255,.14);
+  box-shadow: 0 30px 60px -24px rgba(40,0,28,.75), inset 0 1px 0 rgba(255,255,255,.28), inset 0 0 30px rgba(194,90,152,.14);
+}
+.sol-card:nth-child(odd)::before { background: linear-gradient(115deg, rgba(255,255,255,.22) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 65%, rgba(255,255,255,.12) 100%); }
+.sol-card:nth-child(odd)::after { border-color: rgba(255,255,255,.3); }
+.sol-card:nth-child(odd) h3 { color: #fff; }
+.sol-card:nth-child(odd) h3 .accent { color: #f0a7d1; }
+.sol-card:nth-child(odd) p { color: rgba(255,255,255,.78); }
+.sol-card:nth-child(odd) .sol-card__link { background: #fff; color: var(--plum); box-shadow: 0 8px 20px -8px rgba(0,0,0,.5), inset 0 1px 0 #fff; }
+
+@media (min-width: 640px) { .sol-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .sol-grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* ==========================================================================
+   8. FOOTER
+   ========================================================================== */
+/* ==========================================================================
+   7c. CLIENT REVIEWS (scroll-snap carousel)
+   ========================================================================== */
+.reviews { padding-bottom: var(--section-y); }
+.reviews__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; margin-bottom: clamp(1.5rem, 3vw, 2.5rem); }
+.reviews__head .section-head { text-align: left; margin: 0; }
+.reviews__nav { display: flex; gap: .6rem; flex: 0 0 auto; }
+.arrow-btn {
+  width: 48px; height: 48px; border-radius: 50%; border: 0; cursor: pointer; display: grid; place-items: center;
+  color: var(--plum); --radius-lg: 50%;
+  transition: transform .3s var(--ease), opacity .3s;
+}
+.arrow-btn:hover:not(:disabled) { transform: scale(1.08); }
+.arrow-btn:disabled { opacity: .35; cursor: default; }
+.arrow-btn svg { width: 20px; height: 20px; }
+.reviews__track {
+  /* full-bleed: cards run behind the screen edges; first card still lines up with the container */
+  --rev-pad: max(var(--gutter), calc((100% - var(--container)) / 2));
+  display: grid; grid-auto-flow: column; grid-auto-columns: 100%; gap: 1.25rem;
+  overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain;
+  padding: 1rem var(--rev-pad) 4rem; scroll-padding-inline: var(--rev-pad); margin-block: -1rem -3rem;
+}
+.reviews__track::-webkit-scrollbar { display: none; }
+.review { scroll-snap-align: start; display: flex; flex-direction: column; gap: 1.25rem; padding: clamp(1.5rem, 2.6vw, 2.25rem); margin-inline: 20px; --radius-lg: 26px; }
+.review__mark { font-family: var(--font-display); font-size: 4.5rem; line-height: .6; color: var(--plum); height: 2rem; }
+.review blockquote { margin: 0; flex: 1; font-size: 1.05rem; line-height: 1.6; color: var(--ink); }
+.review figcaption { display: flex; align-items: center; gap: .85rem; }
+.review__avatar {
+  flex: 0 0 auto; width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center;
+  font-weight: 700; font-size: .95rem; color: #fff; background: linear-gradient(145deg, #c25a98, var(--plum-700));
+  box-shadow: 0 8px 18px -8px rgba(136,0,88,.7), inset 0 1px 0 rgba(255,255,255,.4);
+}
+.review__name { display: block; font-weight: 700; }
+.review__role { display: block; font-size: .9rem; color: var(--ink-soft); }
+@media (min-width: 768px)  { .reviews__track { grid-auto-columns: calc((100% - 1.25rem) / 2); } }
+@media (min-width: 1024px) { .reviews__track { grid-auto-columns: calc((100% - 2.5rem) / 3); } }
+@media (max-width: 560px)  { .reviews__head { flex-direction: column; align-items: flex-start; } }
+
+/* ==========================================================================
+   7d. CALL TO ACTION (same dark glass as the feature section)
+   ========================================================================== */
+.cta { padding-bottom: var(--section-y); }
+.cta__panel {
+  --glass-bg: linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.04));
+  --glass-border: rgba(255,255,255,.28); --glass-edge-dark: rgba(255,255,255,.14);
+  --glass-shadow: 0 30px 70px -30px rgba(0,0,0,.7), 0 6px 18px -6px rgba(0,0,0,.4);
+  --glass-inner: inset 0 1px 0 rgba(255,255,255,.35), inset 0 -1px 0 rgba(255,255,255,.05), inset 0 0 30px rgba(194,90,152,.12);
+  --glass-reflection: linear-gradient(115deg, rgba(255,255,255,.2) 0%, rgba(255,255,255,0) 38%, rgba(255,255,255,0) 62%, rgba(255,255,255,.1) 100%);
+  --radius-lg: clamp(24px, 4vw, 44px);
+  padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.5rem, 5vw, 4rem); text-align: center; color: #fff;
+  background:
+    radial-gradient(70% 55% at 85% 0%, rgba(214,96,159,.45), transparent 65%),
+    radial-gradient(60% 50% at 0% 100%, rgba(136,0,88,.7), transparent 65%),
+    linear-gradient(160deg, #1b0013 0%, #34001f 45%, #5a0039 100%);
+}
+.cta__panel h2 { font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.08; letter-spacing: -.02em; }
+.cta__panel p { margin: 1.25rem auto 0; max-width: 56ch; font-size: clamp(1.05rem, 2vw, 1.25rem); color: rgba(255,255,255,.8); }
+.cta__panel .btn { margin-top: 2rem; background: #fff; color: var(--plum); box-shadow: 0 10px 24px -8px rgba(0,0,0,.55), inset 0 1px 0 #fff; }
+.cta__panel .btn:hover { transform: translateY(-2px) scale(1.03); }
+
+/* ==========================================================================
+   8. FOOTER (liquid-glass panel)
+   ========================================================================== */
+.footer { padding: 0; color: var(--ink); font-size: .95rem; }
+.footer > .container { width: 100%; max-width: none; margin: 0; }
+.footer__panel {
+  --radius-lg: 0px; border-radius: 0; border-inline: 0; border-bottom: 0;
+  padding: clamp(2rem, 4vw, 3.25rem) max(var(--gutter), calc((100% - var(--container)) / 2));
+}
+.footer__grid { display: grid; grid-template-columns: 1fr; gap: 2.25rem; }
+.footer__brand img { height: 28px; width: auto; }
+.footer__brand p { margin-top: 1rem; max-width: 34ch; color: var(--ink-soft); }
+.footer h3 { font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--plum); margin-bottom: 1rem; font-weight: 700; }
+.footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .7rem; }
+.footer a { color: var(--ink); text-decoration: none; transition: color .2s; }
+.footer a:hover { color: var(--plum); }
+.contact-list li { display: flex; align-items: flex-start; gap: .75rem; }
+.contact-list svg { flex: 0 0 auto; width: 20px; height: 20px; margin-top: .15rem; color: var(--plum); }
+.contact-list address { font-style: normal; }
+.social { display: flex; gap: .6rem; margin-top: 1.5rem; }
+.social a {
+  width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; color: var(--plum);
+  background: rgba(255,255,255,.7); box-shadow: inset 0 0 0 1px rgba(136,0,88,.2), inset 0 1px 0 #fff; transition: transform .3s var(--ease), background .3s, color .3s;
+}
+.social a:hover { transform: translateY(-3px); background: var(--plum); color: #fff; }
+.social svg { width: 18px; height: 18px; }
+.footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem 1.5rem; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(136,0,88,.15); color: var(--ink-soft); font-size: .88rem; }
+.social a:not([href]) { pointer-events: none; cursor: default; }
+.footer__disclaimer { margin: 1rem 0 0; color: var(--ink-soft); font-size: .8rem; line-height: 1.5; }
+.footer__bottom nav { display: flex; gap: 1.25rem; }
+@media (min-width: 640px)  { .footer__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .footer__grid { grid-template-columns: 1.4fr 1.4fr 1fr 1fr; gap: 3rem; } }
+
+/* ==========================================================================
+   9. REVEAL + KEYFRAMES
+   ========================================================================== */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: var(--d, 0s); }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+@keyframes drift   { to { transform: translate3d(6vmax, 4vmax, 0) scale(1.12); } }
+@keyframes shimmer { to { background-position: 200% center; } }
+@keyframes pulse   { 0%,100% { box-shadow: 0 0 0 0 rgba(136,0,88,.5); } 50% { box-shadow: 0 0 0 8px rgba(136,0,88,0); } }
+@keyframes settle  { 0% { transform: scale(1); } 40% { transform: scale(1.09); } 100% { transform: scale(1); } }
+@keyframes panelIn { from { opacity: 0; transform: translateY(18px) scale(.985); } to { opacity: 1; transform: none; } }
+
+/* ==========================================================================
+   10. RESPONSIVE (mobile-first)
+   ========================================================================== */
+@media (min-width: 640px) {
+  .metrics { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 768px) {
+  .nav__links { display: flex; }
+}
+@media (min-width: 1024px) {
+  .panel__inner { padding: 2.25rem; }
+}
+@media (max-width: 480px) {
+  .hero__cta .btn { width: 100%; }
+  .tablist { width: 100%; justify-content: flex-start; }
+}
+@media (hover: none) { .shot__media:active img { transform: scale(var(--zoom)); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *,*::before,*::after { animation: none !important; transition-duration: .01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+
+<body>
+<div class="ambient" aria-hidden="true"><span></span><span></span><span></span></div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container">
+    <nav class="nav glass" aria-label="Primary">
+      <a class="logo" href="#top" aria-label="Notch home">
+        <img src="https://res.cloudinary.com/y5bf1fxv/image/upload/v1793646108/notch-logo.png" alt="Notch" width="108" height="28">
+      </a>
+      <ul class="nav__links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#solutions">Solutions</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+      </ul>
+      <a class="btn btn--primary" href="#features">Get started</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 1. HERO -->
+  <div class="hero-stack">
+  <section class="hero" aria-labelledby="hero-title">
+    <video class="hero__video" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1">
+      <source src="https://res.cloudinary.com/y5bf1fxv/video/upload/v1793737967/000.mp4" type="video/mp4">
+    </video>
+    <div class="container">
+      <div class="hero__content">
+        <span class="eyebrow glass reveal"><i></i> Financial automation platform</span>
+        <h1 id="hero-title" class="reveal" style="--d:.08s"><span class="accent">TOP notch</span><br>your money<br>velocity</h1>
+        <p class="reveal" style="--d:.16s">Automate invoicing, collections and reconciliation so payments arrive faster and your team spends less time on admin.</p>
+        <div class="hero__cta reveal" style="--d:.24s">
+          <a class="btn btn--primary" href="#features">See how it works</a>
+        </div>
+      </div>
+      <div class="metrics" id="trust" aria-label="Results">
+          <article class="metric glass glass--interactive reveal">
+            <span class="metric__value" data-target="3" data-suffix="x" aria-label="3x">0x</span>
+            <span class="metric__label">faster payment collection</span>
+          </article>
+          <article class="metric glass glass--interactive reveal" style="--d:.1s">
+            <span class="metric__value" data-target="80" data-suffix="%" aria-label="80%">0%</span>
+            <span class="metric__label">customer payments automated online</span>
+          </article>
+          <article class="metric glass glass--interactive reveal" style="--d:.2s">
+            <span class="metric__value" data-target="70" data-suffix="%" aria-label="70%">0%</span>
+            <span class="metric__label">less time spent on admin</span>
+          </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. WORKFLOW AUTOMATION TABS -->
+  <section class="features" id="features" aria-labelledby="features-title">
+    <div class="features__media" aria-hidden="true">
+      <img class="px px--bg" width="4096" height="2286" loading="lazy" src="https://res.cloudinary.com/y5bf1fxv/image/upload/v1793722407/Frame_1.png" alt="" decoding="async" data-speed="0.26" data-scale="1.26">
+      <img class="px px--screens" width="4096" height="2286" loading="lazy" src="https://res.cloudinary.com/y5bf1fxv/image/upload/v1793723027/Frame_2.png" alt="" decoding="async" data-speed="0.12" data-scale="1">
+      <img class="px px--man" width="4096" height="2286" loading="lazy" src="https://res.cloudinary.com/y5bf1fxv/image/upload/v1793722400/Frame_3.png" alt="" decoding="async" data-speed="-0.10" data-scale="1">
+    </div>
+    <div class="container features__body">
+      <div class="section-head reveal">
+        <h2 id="features-title">Maximize efficiency, minimize the hassle</h2>
+        <p>Stop chasing down late payments—automate your AR processes, boost cash flow, and free up time for your team to help drive your business forward.</p>
+      </div>
+
+      <div class="tablist glass reveal" role="tablist" aria-label="Notch capabilities">
+        <button class="tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true"  tabindex="0">Automate Workflows</button>
+        <button class="tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1">Improve Cash Flow</button>
+        <button class="tab" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1">Enhance Customer Experience</button>
+      </div>
+
+      <div class="panel is-active" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
+        <div class="panel__inner glass">
+          <figure class="shot" style="margin:0">
+            <div class="shot__side">
+              <h3 class="shot__title reveal">Transform how your <span class="accent">team works</span></h3>
+              <ul class="shot__list">
+                <li class="reveal" style="--d:0.1s">Automate AR Tasks</li>
+                <li class="reveal" style="--d:0.2s">Save Team Time</li>
+                <li class="reveal" style="--d:0.3s">Sync Seamlessly</li>
+              </ul>
+              <div class="reveal" style="--d:.4s"><a class="btn btn--primary" href="#">Learn More</a></div>
+            </div>
+            <div class="shot__media">
+              <img src="https://res.cloudinary.com/y5bf1fxv/image/upload/v1793675153/tab-automate-workflows_2.png" alt="Notch payment settings and fee options screen" width="915" height="611" loading="eager">
+            </div>
+          </figure>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>
+        <div class="panel__inner glass">
+          <figure class="shot" style="margin:0">
+            <div class="shot__side">
+              <h3 class="shot__title reveal">Fuel your business with <span class="accent">steady cash flow</span></h3>
+              <ul class="shot__list">
+                <li class="reveal" style="--d:0.1s">Accelerate Cash Flow</li>
+                <li class="reveal" style="--d:0.2s">Eliminate Delays</li>
+                <li class="reveal" style="--d:0.3s">Ensure On-Time Collections</li>
+              </ul>
+              <div class="reveal" style="--d:.4s"><a class="btn btn--primary" href="#">Learn More</a></div>
+            </div>
+            <div class="shot__media">
+              <img src="https://res.cloudinary.com/y5bf1fxv/image/upload/v1793675136/tab-improve-cash-flow_1.png" alt="Notch customer notification and reminder settings" width="915" height="611" loading="lazy" decoding="async">
+            </div>
+          </figure>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" hidden>
+        <div class="panel__inner glass">
+          <figure class="shot" style="margin:0">
+            <div class="shot__side">
+              <h3 class="shot__title reveal">Create exceptional <span class="accent">customer interactions</span></h3>
+              <ul class="shot__list">
+                <li class="reveal" style="--d:0.1s">Flexible Self-Service</li>
+                <li class="reveal" style="--d:0.2s">Boost Satisfaction</li>
+                <li class="reveal" style="--d:0.3s">Build Trust</li>
+              </ul>
+              <div class="reveal" style="--d:.4s"><a class="btn btn--primary" href="#">Learn More</a></div>
+            </div>
+            <div class="shot__media">
+              <img src="https://res.cloudinary.com/y5bf1fxv/image/upload/v1793675116/tab-enhance-customer-experience_1.png" alt="Notch bills page listing invoices and payment status" width="915" height="611" loading="lazy" decoding="async">
+            </div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <!-- 4. AR AUTOMATION SOLUTION (3x2) -->
+  <section class="solutions" id="solutions" aria-labelledby="solutions-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 id="solutions-title">Explore Notch’s AR Automation Solution</h2>
+      </div>
+      <div class="sol-grid">
+        <article class="sol-card glass glass--interactive reveal" style="--d:0.00s">
+          <h3>Customer Payment <span class="accent">Portal</span></h3>
+          <div class="sol-card__media">
+            <img src="https://res.cloudinary.com/y5bf1fxv/image/upload/v1793730958/Customer_Payment_Portal.png" alt="Customer Payment Portal interface preview" loading="lazy" decoding="async">
+            <p>Provide customers a seamless payment experience with a dedicated portal that simplifies payment collection.</p>
+          </div>
+          <a class="sol-card__link" href="#">Learn More <span aria-hidden="true">→</span><span class="sr-only"> about Customer Payment Portal</span></a>
+        </article>
+        <article class="sol-card sol-card--text glass glass--interactive reveal" style="--d:0.08s">
+          <h3>Payment <span class="accent">Collection</span></h3>
+          <div class="sol-card__media">
+            <p>Automate payment collection to reduce payment delays and manual work.</p>
+          </div>
+          <a class="sol-card__link" href="#">Learn More <span aria-hidden="true">→</span><span class="sr-only"> about Payment Collection</span></a>
+        </article>
+        <article class="sol-card glass glass--interactive reveal" style="--d:0.16s">
+          <h3>Payment <span class="accent">Reconciliation</span></h3>
+          <div class="sol-card__media">
+            <img src="https://res.cloudinary.com/y5bf1fxv/image/upload/v1793730928/Payment_Reconciliation.png" alt="Payment Reconciliation interface preview" loading="lazy" decoding="async">
+            <p>Sync payments in real-time and keep your financial records accurate with automated reconciliation.</p>
+          </div>
+          <a class="sol-card__link" href="#">Learn More <span aria-hidden="true">→</span><span class="sr-only"> about Payment Reconciliation</span></a>
+        </article>
+        <article class="sol-card sol-card--text glass glass--interactive reveal" style="--d:0.00s">
+          <h3>Invoice <span class="accent">Management</span></h3>
+          <div class="sol-card__media">
+            <p>Simplify invoicing with automated customer invoicing, batch processing, and timely payment reminders.</p>
+          </div>
+          <a class="sol-card__link" href="#">Learn More <span aria-hidden="true">→</span><span class="sr-only"> about Invoice Management</span></a>
+        </article>
+        <article class="sol-card glass glass--interactive reveal" style="--d:0.08s">
+          <h3>Payment <span class="accent">Processing</span></h3>
+          <div class="sol-card__media">
+            <img src="https://res.cloudinary.com/y5bf1fxv/image/upload/v1793730944/Payment_Processing.png" alt="Payment Processing interface preview" loading="lazy" decoding="async">
+            <p>Accelerate transactions and reduce costs with automated, flexible payment processing.</p>
+          </div>
+          <a class="sol-card__link" href="#">Learn More <span aria-hidden="true">→</span><span class="sr-only"> about Payment Processing</span></a>
+        </article>
+        <article class="sol-card sol-card--text glass glass--interactive reveal" style="--d:0.16s">
+          <h3>OCR Invoice Scanning &amp; <span class="accent">Processing</span></h3>
+          <div class="sol-card__media">
+            <p>Capture, digitize and process invoices quickly with OCR to eliminate manual entry and errors.</p>
+          </div>
+          <a class="sol-card__link" href="#">Learn More <span aria-hidden="true">→</span><span class="sr-only"> about OCR Invoice Scanning and Processing</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CLIENT REVIEWS -->
+  <section class="reviews" id="reviews" aria-labelledby="reviews-title">
+    <div class="container">
+      <div class="reviews__head reveal">
+        <div class="section-head"><h2 id="reviews-title">What our customers say</h2></div>
+        <div class="reviews__nav">
+          <button class="arrow-btn glass" type="button" id="rev-prev" aria-label="Previous reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button class="arrow-btn glass" type="button" id="rev-next" aria-label="Next reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <div class="reviews__track" id="rev-track" tabindex="0" role="region" aria-label="Customer reviews">
+          <figure class="review glass glass--interactive">
+            <span class="review__mark" aria-hidden="true">“</span>
+            <blockquote>The Notch interface is very clean and organized. You can see all your invoices: their status, the date they were paid, and the amount, which makes it fast and simple to find invoice and payment details when customers have questions about them.</blockquote>
+            <figcaption>
+              <span class="review__avatar" aria-hidden="true">KL</span>
+              <span><span class="review__name">Kerstin Langmuir</span><span class="review__role">Financial Analyst, Ace Beverage Group</span></span>
+            </figcaption>
+          </figure>
+          <figure class="review glass glass--interactive">
+            <span class="review__mark" aria-hidden="true">“</span>
+            <blockquote>The notch team has made the transition to their product easy and seamless, allowing me and my team to focus on opening locations and adding brands with the knowledge that this part of our business is taken care of. We look forward to their support as we scale across Canada.</blockquote>
+            <figcaption>
+              <span class="review__avatar" aria-hidden="true">MC</span>
+              <span><span class="review__name">Marc Choy</span><span class="review__role">President, Ghost Kitchen Brands</span></span>
+            </figcaption>
+          </figure>
+          <figure class="review glass glass--interactive">
+            <span class="review__mark" aria-hidden="true">“</span>
+            <blockquote>notch has made my work easier by saving me time, and most importantly allows me to focus on customer service instead of just the numbers. As a General Manager, we don’t just want to spend our time invoicing, we want to spend time with our customers – it’s the main part of our business.</blockquote>
+            <figcaption>
+              <span class="review__avatar" aria-hidden="true">OS</span>
+              <span><span class="review__name">Oleksandra Stamenova</span><span class="review__role">General Manager, Box’d by Paramount</span></span>
+            </figcaption>
+          </figure>
+          <figure class="review glass glass--interactive">
+            <span class="review__mark" aria-hidden="true">“</span>
+            <blockquote>notch has given us the ability to expand our reach in a very competitive industry, and we are very happy with what the system can do and especially with the entire team!</blockquote>
+            <figcaption>
+              <span class="review__avatar" aria-hidden="true">PZ</span>
+              <span><span class="review__name">Paola Zagaria</span><span class="review__role">Operations, Dolce Lucano</span></span>
+            </figcaption>
+          </figure>
+          <figure class="review glass glass--interactive">
+            <span class="review__mark" aria-hidden="true">“</span>
+            <blockquote>Partnering with notch has let Sapsucker provide an easy-to-use platform for their customers, helping centralize and easily manage orders, invoicing, and relationships.</blockquote>
+            <figcaption>
+              <span class="review__avatar" aria-hidden="true">RK</span>
+              <span><span class="review__name">Ryan Klein</span><span class="review__role">COO, Sapsucker</span></span>
+            </figcaption>
+          </figure>
+          <figure class="review glass glass--interactive">
+            <span class="review__mark" aria-hidden="true">“</span>
+            <blockquote>Working with the notch team has been amazing. They are attentive, and are excited to work together to create the best solutions for our industry.</blockquote>
+            <figcaption>
+              <span class="review__avatar" aria-hidden="true">OB</span>
+              <span><span class="review__name">Oliver &amp; Bonacini Hospitality</span><span class="review__role">Notch customer</span></span>
+            </figcaption>
+          </figure>
+      </div>
+  </section>
+
+  <!-- 6. CALL TO ACTION -->
+  <section class="cta" aria-labelledby="cta-title">
+    <div class="container">
+      <div class="cta__panel glass reveal">
+        <h2 id="cta-title">Ready to talk?</h2>
+        <p>Schedule a call instantly and learn more about how you can find untapped profit and time savings in your payments process.</p>
+        <a class="btn" href="#">Schedule a Call</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer__panel glass">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="logo" href="#top" aria-label="Notch home"><img src="data:image/png;base64,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" alt="Notch" width="108" height="28"></a>
+          <p>Financial automation that helps you get paid faster and spend less time on admin.</p>
+          <div class="social" aria-label="Notch on social media">
+            <a aria-label="Notch on Instagram" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a aria-label="Notch on LinkedIn" aria-disabled="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.2 8.6H2V21h3.2V8.6zM3.6 3.3a1.9 1.9 0 100 3.8 1.9 1.9 0 000-3.8zM21.9 14.4c0-3.4-1.8-5.9-4.7-5.9-1.5 0-2.6.8-3.1 1.6V8.6H11V21h3.2v-6.6c0-1.7.8-2.8 2.2-2.8 1.3 0 2 1 2 2.8V21h3.5v-6.6z"/></svg></a>
+            <a aria-label="Notch on X (Twitter)" aria-disabled="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.3L5.3 21H2.2l7.2-8.3L1.8 3h6.4l4.4 5.8L17.8 3zm-1.1 16.2h1.7L7.2 4.7H5.4l11.3 14.5z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <ul class="contact-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3.5 7l8.5 6 8.5-6"/></svg><span>hello@example.com</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg><span>1 (555) 010-0100</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><address>100 Example Street, Suite 100<br>Anytown, ON A1A 1A1<br>Canada</address></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Products</h3>
+          <ul>
+            <li><a href="#">Customer Payment Portal</a></li>
+            <li><a href="#">Payment Collection</a></li>
+            <li><a href="#">Payment Reconciliation</a></li>
+            <li><a href="#">Invoice Management</a></li>
+            <li><a href="#">Payment Processing</a></li>
+            <li><a href="#">OCR Invoice Scanning</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Customer Stories</a></li>
+            <li><a href="#">AR Login</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span id="year"></span> Notch. All rights reserved.</span>
+        <nav aria-label="Legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </nav>
+      </div>
+      <p class="footer__disclaimer">Disclaimer: This is a concept redesign created for portfolio purposes only. It is not affiliated with, endorsed by, or connected to Notch. All contact details are fictional, and no links lead to the original company.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ==========================================================================
+   MODULE: reveal on scroll
+   ========================================================================== */
+(() => {
+  const els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('is-visible')); return; }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('is-visible'); io.unobserve(en.target); } });
+  }, { threshold: .15 });
+  els.forEach(e => io.observe(e));
+})();
+
+/* ==========================================================================
+   MODULE: counters (0 -> target, triggered once on scroll/load)
+   ========================================================================== */
+(() => {
+  const counters = document.querySelectorAll('.metric__value');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
+
+  function run(el) {
+    const target = +el.dataset.target, suffix = el.dataset.suffix || '', dur = 2200;
+    if (reduce) { el.textContent = target + suffix; return; }
+    const t0 = performance.now();
+    (function frame(now) {
+      const p = Math.min((now - t0) / dur, 1);
+      el.textContent = Math.round(easeOutCubic(p) * target) + suffix;
+      if (p < 1) requestAnimationFrame(frame);
+      else { el.textContent = target + suffix; el.classList.add('is-done'); }
+    })(t0);
+  }
+
+  if (!('IntersectionObserver' in window)) { counters.forEach(run); return; }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => { if (en.isIntersecting) { run(en.target); io.unobserve(en.target); } });
+  }, { threshold: .6 });
+  counters.forEach(c => io.observe(c));
+})();
+
+/* ==========================================================================
+   MODULE: accessible tabs
+   ========================================================================== */
+(() => {
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  const panels = tabs.map(t => document.getElementById(t.getAttribute('aria-controls')));
+
+  function activate(i, focus = false) {
+    tabs.forEach((t, k) => {
+      const on = k === i;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      panels[k].hidden = !on;
+      panels[k].classList.toggle('is-active', on);
+      if (on) panels[k].querySelectorAll('img[loading="lazy"]').forEach(img => img.loading = 'eager');
+    });
+    if (focus) tabs[i].focus();
+    tabs[i].scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+  }
+
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => activate(i));
+    t.addEventListener('keydown', e => {
+      const n = tabs.length;
+      if (e.key === 'ArrowRight') { e.preventDefault(); activate((i + 1) % n, true); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); activate((i - 1 + n) % n, true); }
+      else if (e.key === 'Home') { e.preventDefault(); activate(0, true); }
+      else if (e.key === 'End') { e.preventDefault(); activate(n - 1, true); }
+    });
+  });
+})();
+
+/* ==========================================================================
+   MODULE: reviews carousel
+   ========================================================================== */
+(() => {
+  const track = document.getElementById('rev-track');
+  const prev = document.getElementById('rev-prev'), next = document.getElementById('rev-next');
+  if (!track) return;
+  const step = () => { const c = track.querySelectorAll('.review'); return c.length > 1 ? c[1].offsetLeft - c[0].offsetLeft : track.clientWidth; };
+  const update = () => {
+    prev.disabled = track.scrollLeft <= 4;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+  };
+  prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+  next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+  track.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+  track.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); next.click(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev.click(); }
+  });
+  addEventListener('resize', update);
+  update();
+})();
+
+/* ==========================================================================
+   MODULE: hero video (respect reduced motion)
+   ========================================================================== */
+(() => {
+  const v = document.querySelector('.hero__video');
+  if (v && matchMedia('(prefers-reduced-motion: reduce)').matches) { v.removeAttribute('autoplay'); v.pause(); }
+})();
+
+/* ==========================================================================
+   MODULE: features photo — height variable + gentle parallax
+   ========================================================================== */
+(() => {
+  const sec = document.querySelector('.features');
+  const media = sec && sec.querySelector('.features__media');
+  if (!media) return;
+  const layers = [...media.querySelectorAll('.px')];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // content starts 2/3 down the photo: use layout height (offsetHeight ignores transforms)
+  const syncHeight = () => sec.style.setProperty('--hero-h', media.offsetHeight + 'px');
+
+  // parallax: each layer drifts a little against the scroll; deeper layers drift more
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    const r = media.getBoundingClientRect(), vh = innerHeight;
+    if (r.bottom < -100 || r.top > vh + 100) return;               // off screen: nothing to do
+    const t = reduce ? 0 : (vh - r.top) / (vh + r.height) - 0.5;    // -0.5 … +0.5 while crossing the viewport (still when motion is reduced)
+    layers.forEach(el => {
+      const k = parseFloat(el.dataset.speed || 0), sc = parseFloat(el.dataset.scale || 1);
+      el.style.setProperty('--py', (t * k * r.height).toFixed(1) + 'px');
+      el.style.setProperty('--ps', sc);
+    });
+  };
+  const request = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+
+  layers[0].addEventListener('load', () => { syncHeight(); request(); });
+  if ('ResizeObserver' in window) new ResizeObserver(() => { syncHeight(); request(); }).observe(media);
+  else addEventListener('resize', () => { syncHeight(); request(); });
+  syncHeight();
+  if (!reduce) { addEventListener('scroll', request, { passive: true }); addEventListener('resize', request); request(); }
+})();
+
+/* ==========================================================================
+   MODULE: hero pin offset (hero taller than the window pins by its bottom edge)
+   ========================================================================== */
+(() => {
+  const hero = document.querySelector('.hero-stack > .hero');
+  if (!hero) return;
+  const set = () => hero.style.setProperty('--hero-stick', Math.min(0, innerHeight - hero.offsetHeight) + 'px');
+  if ('ResizeObserver' in window) new ResizeObserver(set).observe(hero);
+  addEventListener('resize', set);
+  set();
+})();
+
+/* ==========================================================================
+   MODULE: hero content zoom-out on scroll
+   ========================================================================== */
+(() => {
+  const hero = document.querySelector('.hero-stack > .hero');
+  if (!hero || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const END_SCALE = 0.75;                       // size of the content once the features section has covered the hero
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    const p = Math.min(Math.max(scrollY / Math.max(hero.offsetHeight, 1), 0), 1);
+    hero.style.setProperty('--hero-zoom', (1 - (1 - END_SCALE) * p).toFixed(4));
+  };
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  addEventListener('resize', update);
+  update();
+})();
+
+document.getElementById('year').textContent = new Date().getFullYear();
+document.addEventListener('click', e => { const a = e.target.closest('a[href="#"]'); if (a) e.preventDefault(); });
+</script>
+</body>
+</html>
